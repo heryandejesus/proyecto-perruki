@@ -68,7 +68,7 @@ export default function Navbar() {
 
           {/* Links izquierda — solo desktop */}
           <div style={{ display: 'flex', gap: '12px' }} className="hidden-mobile">
-            <Link href="/" style={pillStyle}
+            <Link href="/#productos" style={pillStyle}
               onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#0F2D1F'; e.currentTarget.style.color = '#6EE9A0' }}
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#0F2D1F' }}
             >
@@ -214,7 +214,7 @@ export default function Navbar() {
           flexDirection: 'column',
           gap: '12px',
         }}>
-          <Link href="/" onClick={() => setMenuOpen(false)} style={{
+          <Link href="/#productos" onClick={() => setMenuOpen(false)} style={{
             ...pillStyle,
             textAlign: 'center',
           }}>

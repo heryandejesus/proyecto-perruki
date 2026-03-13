@@ -53,7 +53,7 @@ export default async function HomePage() {
       </section>
 
       {/* Productos */}
-      <section style={{
+      <section id="productos" style={{
         backgroundColor: '#EEFE76',
         borderTop: '2px solid #0F2D1F',
         borderRadius: '32px 32px 0 0',
