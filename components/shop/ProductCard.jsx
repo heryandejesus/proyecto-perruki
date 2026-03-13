@@ -6,41 +6,133 @@ export default function ProductCard({ product }) {
   const addItem = useCartStore(s => s.addItem)
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow group">
-      <Link href={`/producto/${product.slug}`}>
-        <div className="aspect-square overflow-hidden bg-gray-50">
+    <div style={{
+      backgroundColor: '#FFFFFF',
+      borderRadius: '16px',
+      overflow: 'hidden',
+      border: '2px solid #0F2D1F',
+      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+      cursor: 'pointer',
+    }}
+      onMouseEnter={e => {
+        e.currentTarget.style.transform = 'translateY(-4px)'
+        e.currentTarget.style.boxShadow = '4px 4px 0px #0F2D1F'
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.transform = 'translateY(0)'
+        e.currentTarget.style.boxShadow = 'none'
+      }}
+    >
+      <Link href={`/producto/${product.slug}`} style={{ display: 'block', textDecoration: 'none' }}>
+        <div style={{
+          aspectRatio: '1',
+          overflow: 'hidden',
+          backgroundColor: '#EEFE76',
+        }}>
           <img
             src={product.image_url}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              transition: 'transform 0.4s ease',
+            }}
+            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
           />
         </div>
       </Link>
-      <div className="p-4">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+
+      <div style={{ padding: '20px' }}>
+        <div style={{ display: 'flex', gap: '6px', marginBottom: '10px' }}>
+          <span style={{
+            fontFamily: 'DM Sans, sans-serif',
+            fontSize: '11px',
+            fontWeight: 600,
+            color: '#0F2D1F',
+            backgroundColor: '#EEFE76',
+            padding: '3px 10px',
+            borderRadius: '100px',
+            textTransform: 'capitalize',
+            border: '1.5px solid #0F2D1F',
+          }}>
             {product.material}
           </span>
-          <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+          <span style={{
+            fontFamily: 'DM Sans, sans-serif',
+            fontSize: '11px',
+            fontWeight: 600,
+            color: '#0F2D1F',
+            backgroundColor: '#EEFE76',
+            padding: '3px 10px',
+            borderRadius: '100px',
+            border: '1.5px solid #0F2D1F',
+          }}>
             Talle {product.size}
           </span>
         </div>
-        <Link href={`/producto/${product.slug}`}>
-          <h3 className="font-semibold text-gray-900 mt-2 hover:text-orange-500 transition-colors">
+
+        <Link href={`/producto/${product.slug}`} style={{ textDecoration: 'none' }}>
+          <h3 style={{
+            fontFamily: 'Fredoka One, cursive',
+            fontSize: '20px',
+            fontWeight: 400,
+            color: '#0F2D1F',
+            lineHeight: 1.2,
+            marginBottom: '4px',
+          }}>
             {product.name}
           </h3>
         </Link>
-        <p className="text-xs text-gray-400 mt-1">
+
+        <p style={{
+          fontFamily: 'DM Sans, sans-serif',
+          fontSize: '12px',
+          color: '#5A6A40',
+          marginBottom: '16px',
+        }}>
           Cuello: {product.min_neck_cm}–{product.max_neck_cm} cm
         </p>
-        <div className="flex items-center justify-between mt-4">
-          <span className="text-lg font-bold text-gray-900">
+
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <span style={{
+            fontFamily: 'Fredoka One, cursive',
+            fontSize: '24px',
+            fontWeight: 400,
+            color: '#0F2D1F',
+          }}>
             ${product.price.toLocaleString('es-AR')}
           </span>
           <button
             onClick={() => addItem(product)}
             disabled={product.stock === 0}
-            className="bg-orange-500 hover:bg-orange-600 disabled:bg-gray-200 disabled:text-gray-400 text-white text-sm px-3 py-1.5 rounded-full transition-colors"
+            style={{
+              fontFamily: 'DM Sans, sans-serif',
+              fontSize: '13px',
+              fontWeight: 700,
+              color: product.stock === 0 ? '#A8A29E' : '#6EE9A0',
+              backgroundColor: product.stock === 0 ? '#F0EBE1' : '#0F2D1F',
+              border: '2px solid ' + (product.stock === 0 ? '#F0EBE1' : '#0F2D1F'),
+              padding: '10px 18px',
+              borderRadius: '100px',
+              cursor: product.stock === 0 ? 'not-allowed' : 'pointer',
+              transition: 'all 0.15s ease',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+            }}
+            onMouseEnter={e => {
+              if (product.stock > 0) {
+                e.currentTarget.style.backgroundColor = '#6EE9A0'
+                e.currentTarget.style.color = '#0F2D1F'
+              }
+            }}
+            onMouseLeave={e => {
+              if (product.stock > 0) {
+                e.currentTarget.style.backgroundColor = '#0F2D1F'
+                e.currentTarget.style.color = '#6EE9A0'
+              }
+            }}
           >
             {product.stock === 0 ? 'Sin stock' : 'Agregar'}
           </button>

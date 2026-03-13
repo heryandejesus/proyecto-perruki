@@ -1,1 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@300;400;500;600&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+  --color-mint: #6EE9A0;
+  --color-mint-dark: #3DD880;
+  --color-forest: #1A4A35;
+  --color-forest-light: #2D6B4F;
+  --color-cream: #FAF8F3;
+  --color-dark: #0F2D1F;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #6EE9A0;
+  color: #0F2D1F;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #6EE9A0;
+  color: #0F2D1F;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fredoka One', cursive;
+}
