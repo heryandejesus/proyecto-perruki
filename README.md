@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Perruki 🐾
 
-## Getting Started
+E-commerce store for dog collars and accessories, built with Next.js and deployed on Vercel.
 
-First, run the development server:
+## 🔗 Live Site
 
+[proyecto-perruki.vercel.app](https://proyecto-perruki.vercel.app)
+
+## 📋 About
+
+Perruki is a fully functional e-commerce platform built for a dog accessories brand.
+It features a product catalog, a persistent shopping cart, and real payment processing
+via MercadoPago Checkout Pro.
+
+## ✨ Features
+
+- Product catalog with dynamic routing
+- Shopping cart with persistent state (Zustand)
+- MercadoPago Checkout Pro payment integration
+- Mobile-first responsive design
+- Optimized performance with Next.js App Router
+
+## 🛠️ Built With
+
+- [Next.js](https://nextjs.org/) (App Router)
+- [Supabase](https://supabase.com/) — database & backend
+- [Zustand](https://zustand-demo.pmnd.rs/) — state management
+- [Tailwind CSS](https://tailwindcss.com/) — styling
+- [MercadoPago](https://www.mercadopago.com.ar/) — payments
+- Deployed on [Vercel](https://vercel.com/)
+
+## 🚀 Getting Started
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ⚙️ Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file with the following:
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+MERCADOPAGO_ACCESS_TOKEN=your_mercadopago_access_token
+```
 
-## Learn More
+## 👨‍💻 Author
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Developed by [Heryan Guzmán](https://github.com/heryandejesus)
